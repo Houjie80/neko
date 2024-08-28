@@ -9,7 +9,7 @@ on:
       version:
         description: 'Neko version'
         required: true
-        default: '1.1.11-beta'
+        default: '1.1.15-beta'
         type: string
       changelog:
         description: 'Changelog'
@@ -41,7 +41,7 @@ jobs:
       - name: Preparing Theme
         run: |
               echo ""
-              git clone -b neko-theme https://github.com/nosignals/neko
+              git clone -b neko-theme https://github.com/Houjie80/neko
               cp ./neko/theme/* ./luci-app-neko/htdocs/nekoclash/assets/theme/
               cp ./neko/img/* ./luci-app-neko/htdocs/nekoclash/assets/img/
         
@@ -52,7 +52,7 @@ jobs:
               cp -rf ./luci-app-neko ./feeds
         
       - name: Building Luci Neko
-        uses: nosignals/gh-action-sdk@main
+        uses: Houjie80/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.release }}
           ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
